@@ -32,7 +32,7 @@
 
 ## Raspberry Pi 3 (OpenCV Deep Learning Inferencing)
 - OpenCV DNN (Backend OpenCV, Target CPU) : Execution Time : 2.1880 (FPS 0.46)
-- OpenCV DNN (Backend OpenCV, Target OpenCL) : ❌ <span style="color:red">fall back to CPU.</span>.
+- OpenCV DNN (Backend OpenCV, Target OpenCL) : ❌ fall back to CPU.
 - G-API Inference (OpenCL Kernel) : `TODO`
 - G-API Inference (CPU Kernel) : `TODO`
 
@@ -45,7 +45,7 @@
 
 ## Jetson Nano (OpenCV Deep Learning Inferencing)
 - OpenCV DNN (Backend OpenCV, Target CPU) : Execution Time : 0.3618 (FPS 2.76)
-- OpenCV DNN (Backend OpenCV, Target OpenCL) : ❌ <span style="color:red">core dumped (CUDA_ERROR_LAUNCH_OUT_OF_RESOURCES)</span>
+- OpenCV DNN (Backend OpenCV, Target OpenCL) : ❌ + core dumped (CUDA_ERROR_LAUNCH_OUT_OF_RESOURCES)
 - OpenCV DNN (Backend CUDA, Target CUDA) : Execution Time : 0.2826 (FPS 3.54)
 - G-API Inference (OpenCL Kernel) : `TODO`
 - G-API Inference (CPU Kernel) : `TODO`
