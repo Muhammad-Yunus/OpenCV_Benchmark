@@ -36,7 +36,6 @@
 - G-API Inference (OpenCL Kernel) : `TODO`
 - G-API Inference (CPU Kernel) : `TODO`
 
-
 ## Jetson Nano (OpenCV Simple Processing)
 - OpenCV CPU : Execution Time : 0.0050 (FPS 201.16)
 - T-API (OpenCL Backend) : Execution Time : 0.0063 (FPS 159.32)
@@ -65,13 +64,19 @@
 
 ## Jetson TK1 (OpenCV Simple Processing)
 - OpenCV CPU : Execution Time : 0.0118 (FPS 84.48)
-- T-API (OpenCL Backend) : ❌ aborted (pocl-cuda: failed to generate PTX)
-- G-API (OpenCL Kernel) : ❌ aborted (pocl-cuda: failed to generate PTX)
+- T-API (OpenCL Backend) : 
+    - PoCL (CPU + GPU) : ❌ aborted (pocl-cuda: failed to generate PTX)
+    - PoCL (CPU) : Execution Time : 0.0114 (FPS 87.99)
+- G-API (OpenCL Kernel) : 
+    - PoCL (CPU + GPU) : ❌ aborted (pocl-cuda: failed to generate PTX)
+    - PoCL (CPU) : Execution Time : 0.0120 (FPS 83.09)
 - G-API (CPU Kernel) : Execution Time : 0.0105 (FPS 94.85)
 
 ## Jetson TK1 (OpenCV Deep Learning Inferencing)
 - OpenCV DNN (Backend OpenCV, Target CPU) : Execution Time : 0.7818 (FPS 1.28)
-- OpenCV DNN (Backend OpenCV, Target OpenCL) : ❌ aborted (pocl-cuda: failed to generate PTX)
+- OpenCV DNN (Backend OpenCV, Target OpenCL) : 
+    - PoCL (CPU + GPU) : ❌ aborted (pocl-cuda: failed to generate PTX)
+    - PoCL (CPU) : ❌ fall back to CPU.
 - OpenCV DNN (Backend CUDA, Target CUDA) : ❌ OpenCV DNN backend CUDA not supported in Jetson TK1
 - G-API Inference (OpenCL Kernel) : `TODO`
 - G-API Inference (CPU Kernel) : `TODO`
