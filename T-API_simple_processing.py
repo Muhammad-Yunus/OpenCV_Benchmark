@@ -6,11 +6,11 @@ class Pipeline:
         self.multiplier = 2
         self.h, self.w, self.c = img.shape
         self.img_UMat = cv2.UMat(img)
-        self.gray_UMat = cv2.UMat(np.zeros(img.shape[:2], np.uint8))
-        self.blur_UMat = cv2.UMat(np.zeros((self.h, self.w), np.uint8))
-        self.resizeUp_UMat = cv2.UMat(np.zeros((self.h*self.multiplier, self.w*self.multiplier), np.uint8))
-        self.threshold_UMat = cv2.UMat(np.zeros((self.h*self.multiplier, self.w*self.multiplier), np.uint8))
-        self.resizeDown_Umat = cv2.UMat(np.zeros((self.h, self.w), np.uint8))
+        self.gray_UMat = np.zeros(img.shape[:2], np.uint8)
+        self.blur_UMat = np.zeros((self.h, self.w), np.uint8)
+        self.resizeUp_UMat = np.zeros((self.h*self.multiplier, self.w*self.multiplier), np.uint8)
+        self.threshold_UMat = np.zeros((self.h*self.multiplier, self.w*self.multiplier), np.uint8)
+        self.resizeDown_Umat = np.zeros((self.h, self.w), np.uint8)
 
     def apply(self):
         cv2.cvtColor(self.img_UMat, cv2.COLOR_BGR2GRAY, self.gray_UMat)
