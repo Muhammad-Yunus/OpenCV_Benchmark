@@ -8,8 +8,8 @@ class Pipeline:
         self.multiplier = 2
 
         # define kernel
-        self.ocl_kernel = cv2.gapi.core.cpu.kernels() 
-        #self.ocl_kernel = cv2.gapi.core.ocl.kernels()
+        #self.ocl_kernel = cv2.gapi.core.cpu.kernels() 
+        self.ocl_kernel = cv2.gapi.core.ocl.kernels()
         
     def graph(self):
         # define graph
@@ -33,7 +33,7 @@ pipeline = Pipeline(img)
 pipeline.graph()
 
 times = []
-for i in range (100):
+for i in range (5000):
     e1 = cv2.getTickCount()
     pipeline.apply()
     e2 = cv2.getTickCount()
