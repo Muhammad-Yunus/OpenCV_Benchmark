@@ -14,8 +14,9 @@ class Pipeline:
 
     def apply(self):
         cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY, self.gray)
-        cv2.medianBlur(self.gray, 3, self.blur)
-        cv2.resize(self.blur, (self.w*self.multiplier, self.h*self.multiplier), self.resizeUp)
+        # cv2.medianBlur(self.gray, 3, self.blur)
+        # cv2.resize(self.blur, (self.w*self.multiplier, self.h*self.multiplier), self.resizeUp)
+        cv2.resize(self.gray, (self.w*self.multiplier, self.h*self.multiplier), self.resizeUp)
         self.threshold, thresh = cv2.threshold(self.resizeUp, 0, 255, cv2.THRESH_OTSU)
         cv2.resize(self.threshold, (self.w, self.h), self.resizeDown_Umat)
         

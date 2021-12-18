@@ -21,8 +21,8 @@ class Pipeline:
         #self.net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL_FP16)
 
         self.net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
-        #self.net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
-        self.net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA_FP16)
+        self.net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+        #self.net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA_FP16)
 
         self.target_w = 416
         self.target_h = 416
