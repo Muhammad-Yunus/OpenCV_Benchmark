@@ -27,7 +27,7 @@ img = cv2.imread("lenna.png")
 pipeline = Pipeline(img)
 
 times = []
-for i in range (100):
+for i in range (300):
     e1 = cv2.getTickCount()
     mat, thresh = pipeline.apply()
     e2 = cv2.getTickCount()
