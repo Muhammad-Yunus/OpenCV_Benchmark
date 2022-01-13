@@ -35,7 +35,7 @@ class Pipeline:
     def close(self): 
         self.cap.release()
 
-pipeline = Pipeline(w=640, h=480)
+pipeline = Pipeline()
 
 times = []
 for i in range (1000):

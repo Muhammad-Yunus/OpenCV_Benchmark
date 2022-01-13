@@ -3,8 +3,7 @@ import cv2
 import numpy as np 
 from gst_cam import camera
 
-#h, w                    = 480, 320 
-h, w                    = 640, 480
+h, w                    = 480, 320 
 cap                     = cv2.VideoCapture(camera(0, w, h, fs=120), cv2.CAP_GSTREAMER)
 multiplier              = 2
 imgGPU                  = cv2.cuda_GpuMat()
