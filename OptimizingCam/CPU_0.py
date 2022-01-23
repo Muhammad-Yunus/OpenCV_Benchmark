@@ -2,14 +2,14 @@ import os
 import cv2
 import numpy as np 
 from gst_cam import camera
+from gst_file import gst_file_loader
 
 h, w                = 480, 320 
 multiplier          = 2
 cap                 = cv2.VideoCapture(camera(0, w, h, fs=120), cv2.CAP_GSTREAMER)
 
 times = []
-for i in range (1000):
-    
+for __ in range (1000):    
     e1                = cv2.getTickCount()
     ret, img          = cap.read()
     if not ret :
