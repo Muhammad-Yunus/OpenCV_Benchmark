@@ -77,7 +77,7 @@ for i in range (1000):
     e2 = cv2.getTickCount()
     times.append((e2 - e1)/ cv2.getTickFrequency())
 
-#pipeline.sync()
+pipeline.sync()
 time_avg = np.array(times).mean()
 
 name = os.path.splitext(os.path.basename(__file__))[0]
