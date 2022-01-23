@@ -25,17 +25,17 @@ class Pipeline:
         self.multiplier     = multiplier
         self.mog            = cv2.cuda.createBackgroundSubtractorMOG2()
         self.lr             = lr
-        self.imgs_in        = [PinnedMem(self.h, self.w) for __ in range(2)]
+        self.imgs_in        = [PinnedMem(self.w, self.h) for __ in range(2)]
         self.img            = cv2.cuda_GpuMat()
-        self.img.create((self.h, self.w), cv2.CV_8UC3)
+        self.img.create((self.w, self.h), cv2.CV_8UC3)
         self.gray           = cv2.cuda_GpuMat()
-        self.gray.create((self.h, self.w), cv2.CV_8UC1)
+        self.gray.create((self.w, self.h), cv2.CV_8UC1)
         self.resizeUp       = cv2.cuda_GpuMat()
-        self.resizeUp.create((self.h*self.multiplier, self.w*self.multiplier), cv2.CV_8UC1)
+        self.resizeUp.create((self.w*self.multiplier, self.h*self.multiplier), cv2.CV_8UC1)
         self.mog_img        = cv2.cuda_GpuMat()
-        self.mog_img.create((self.h*self.multiplier, self.w*self.multiplier), cv2.CV_8UC1)
+        self.mog_img.create((self.w*self.multiplier, self.h*self.multiplier), cv2.CV_8UC1)
         self.resizeDown     = cv2.cuda_GpuMat()
-        self.resizeDown.create((self.h, self.w), cv2.CV_8UC1)
+        self.resizeDown.create((self.w, self.h), cv2.CV_8UC1)
 
         self.stream         = cv2.cuda_Stream()
         self.is_next_frame  = False

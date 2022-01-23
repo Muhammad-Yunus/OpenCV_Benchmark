@@ -46,11 +46,11 @@ class Pipeline:
         self.imgs_in        = [PinnedMem(self.h, self.w) for __ in range(self.n_streams + 1)]
 
         for __ in range(self.n_streams) :
-            self.imgs.append(cv2.cuda_GpuMat(self.h, self.w, cv2.CV_8UC3))
-            self.grays.append(cv2.cuda_GpuMat(self.h, self.w, cv2.CV_8UC1))
-            self.resizeUps.append(cv2.cuda_GpuMat(self.h*self.multiplier, self.w*self.multiplier, cv2.CV_8UC1))
-            self.mog_imgs.append(cv2.cuda_GpuMat(self.h*self.multiplier, self.w*self.multiplier, cv2.CV_8UC1))
-            self.resizeDowns.append(cv2.cuda_GpuMat(self.h, self.w, cv2.CV_8UC1))
+            self.imgs.append(cv2.cuda_GpuMat((self.w, self.h), cv2.CV_8UC3))
+            self.grays.append(cv2.cuda_GpuMat((self.w, self.h), cv2.CV_8UC1))
+            self.resizeUps.append(cv2.cuda_GpuMat((self.w*self.multiplier, self.h*self.multiplier), cv2.CV_8UC1))
+            self.mog_imgs.append(cv2.cuda_GpuMat((self.w*self.multiplier, self.h*self.multiplier), cv2.CV_8UC1))
+            self.resizeDowns.append(cv2.cuda_GpuMat((self.w, self.h), cv2.CV_8UC1))
 
     def init_stream(self): 
         self.streams        = [cv2.cuda_Stream() for __ in range(self.n_streams)]
