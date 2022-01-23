@@ -106,6 +106,7 @@ class Pipeline:
 # create pipeline
 pipeline    = Pipeline()
 
+# serve as Flask MJPEG Stream
 app         = Flask(__name__)
 
 @app.route('/')
