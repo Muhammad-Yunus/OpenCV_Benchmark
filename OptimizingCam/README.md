@@ -26,4 +26,4 @@
 - `TODO`
 
 ### Reference 
-- https://jamesbowley.co.uk/accelerating-opencv-with-cuda-streams-in-python/?fbclid=IwAR31A5tCMfiYaEtp9Ybz3mJ_cNi4C3a-pLplAgovG0eiFa10RJnngNior4o
+- '*Accelerating OpenCV with CUDA streams in Python*' - https://jamesbowley.co.uk/accelerating-opencv-with-cuda-streams-in-python/?fbclid=IwAR31A5tCMfiYaEtp9Ybz3mJ_cNi4C3a-pLplAgovG0eiFa10RJnngNior4o
