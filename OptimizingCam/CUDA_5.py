@@ -60,8 +60,8 @@ class Pipeline:
         if not ret : 
             raise Exception("Invalid image frame!")
 
-        self.setNextStream()
         i = self.stream_index
+        self.setNextStream()
 
         if (self.is_next_frame) : 
             self.streams[i].waitForCompletion() # wait after we have read the next frame

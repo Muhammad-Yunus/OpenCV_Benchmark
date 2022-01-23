@@ -25,7 +25,7 @@ class Pipeline:
         self.multiplier     = multiplier
         self.mog            = cv2.cuda.createBackgroundSubtractorMOG2()
         self.lr             = lr
-        self.imgs_in        = [PinnedMem(self.w, self.h) for __ in range(2)]
+        self.imgs_in        = [PinnedMem(self.h, self.w) for __ in range(2)]
         self.img            = cv2.cuda_GpuMat()
         self.img.create((self.w, self.h), cv2.CV_8UC3)
         self.gray           = cv2.cuda_GpuMat()
