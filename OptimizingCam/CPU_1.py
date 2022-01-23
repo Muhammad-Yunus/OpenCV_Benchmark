@@ -4,12 +4,12 @@ import numpy as np
 from gst_cam import camera
 
 class Pipeline: 
-    def __init__(self, w=1280, h=720, multiplier=2):
+    def __init__(self, w=1280, h=720, multiplier=2, lr=0.05):
         self.cap                = cv2.VideoCapture(camera(0, w, h, fs=120), cv2.CAP_GSTREAMER)
         self.w, self.h          = w, h
         self.multiplier         = multiplier
         self.mog                = cv2.createBackgroundSubtractorMOG2()
-        self.lr                 = 0.05
+        self.lr                 = lr
         self.img                = np.empty((self.h, self.w, 3), np.uint8)
         self.gray               = np.empty((self.h, self.w), np.uint8)
         self.resizeUp           = np.empty((self.h*self.multiplier, self.w*self.multiplier), np.uint8)
