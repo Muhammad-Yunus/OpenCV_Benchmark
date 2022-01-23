@@ -5,9 +5,9 @@ from gst_cam import camera
 
 # host mem not implemented, manually pin memory
 class PinnedMem(object):
-    def __init__(self, size, dtype=np.uint8):
-        self.array = np.empty(size, dtype)
-        cv2.cuda.registerPageLocked(self.array)
+    def __init__(self, h, w, dtype=cv2.CV_8UC3):
+        self.mem = cv2.cuda_HostMem(h, w, dtype, cv2.cuda.HostMem_PAGE_LOCKED)
+        self.array = self.mem.createMatHeader()
         self.pinned = True
 
     def __del__(self):
@@ -25,7 +25,7 @@ class Pipeline:
         self.multiplier     = multiplier
         self.mog            = cv2.cuda.createBackgroundSubtractorMOG2()
         self.lr             = lr
-        self.img_in         = PinnedMem((self.h, self.w, 3))
+        self.img_in         = PinnedMem(self.h, self.w)
         self.img            = cv2.cuda_GpuMat()
         self.img.create((self.w, self.h), cv2.CV_8UC3)
         self.gray           = cv2.cuda_GpuMat()
@@ -37,7 +37,7 @@ class Pipeline:
         self.resizeDown     = cv2.cuda_GpuMat()
         self.resizeDown.create((self.w, self.h), cv2.CV_8UC1)
 
-        self.stream = cv2.cuda_Stream()
+        self.stream         = cv2.cuda_Stream()
 
     def apply(self):
         ret, __             = self.cap.read(self.img_in.array)
